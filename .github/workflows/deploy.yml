@@ -17,7 +17,7 @@ jobs:
       - run: yarn run next build
       - run: yarn run next export
       - name: rsync deployment
-        uses: burnet01/rsync-deployments@5.2.1
+        uses: burnett01/rsync-deployments@5.2.1
         with:
           switches: -avzr --delete --rsync-path="sudo rsync"
           path: out/
