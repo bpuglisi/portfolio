@@ -26,6 +26,7 @@ jobs:
           EOF
           SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}"
           cd sanity
+          sanity install
           sanity deploy
       - name: build-next
         run: |
