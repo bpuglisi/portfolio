@@ -19,13 +19,13 @@ jobs:
       - name: deploy-sanity
         run: |
           set -e
+          cd sanity
           npm install -g @sanity/cli
           cat << EOF > .env.production
           SANITY_STUDIO_FRONTEND_PREVIEW_SECRET=${{ secrets.SANITY_STUDIO_FRONTEND_PREVIEW_SECRET }}
           SANITY_STUDIO_FRONTEND_BASE_URL=${{ secrets.SANITY_STUDIO_FRONTEND_BASE_URL }}
           EOF
           SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}"
-          cd sanity
           sanity install
           sanity deploy
       - name: build-next
